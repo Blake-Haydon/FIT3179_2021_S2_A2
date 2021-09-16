@@ -6,3 +6,8 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+#vis {
+    position: fixed;
+    top: 70px;
+    right: 0;
+}
