@@ -1,25 +1,77 @@
 const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    description: 'A simple bar chart with embedded data.',
-    data: {
-        values: [
-            { a: 'A', b: 28 },
-            { a: 'B', b: 55 },
-            { a: 'C', b: 43 },
-            { a: 'D', b: 91 },
-            { a: 'E', b: 81 },
-            { a: 'F', b: 53 },
-            { a: 'G', b: 19 },
-            { a: 'H', b: 87 },
-            { a: 'I', b: 52 }
-        ]
-    },
-    mark: 'bar',
-    encoding: {
-        x: { field: 'a', type: 'ordinal' },
-        y: { field: 'b', type: 'quantitative' }
-    }
+    title: 'Normalised Cell Tower Stations per Suburb in Victoria',
+    description: 'The count of cell towers distributed around australia per unit of area (cell towers/area)',
+    width: 800,
+    height: 600,
+
+    layer: [
+        {
+            data: {
+                url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/victoria.topo.json",
+                format: { type: "topojson", feature: "victoria" }
+            },
+            transform: [{
+                lookup: "id",
+                from: {
+                    data: {
+                        url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/id_to_num_stations.csv"
+                    },
+                    key: "id",
+                    fields: ["station_count_by_area"]
+                }
+            }],
+            mark: {
+                type: "geoshape"
+            },
+            encoding: {
+                color: {
+                    field: "station_count_by_area",
+                    type: "quantitative",
+                    scale: {
+                        type: "threshold",
+                        domain: [50, 1000],
+                        range: ["#b3cde3", "#8c96c6", "#88419d"],
+                    }
+                },
+                tooltip: { field: "station_count_by_area", type: "quantitative", title: "Station Count by Area" }
+            },
+            projection: {
+                type: 'mercator'
+            },
+        },
+        {
+            data: {
+                url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/victoria.topo.json",
+                format: { type: "topojson", feature: "victoria" }
+            },
+            transform: [{
+                lookup: "id",
+                from: {
+                    data: {
+                        url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/id_to_num_stations.csv"
+                    },
+                    key: "id",
+                    fields: ["station_count_by_area"]
+                }
+            },
+            {
+                // No stations
+                filter: "datum.station_count_by_area == 0"
+            }
+            ],
+            mark: {
+                type: "geoshape",
+                color: "#edf8fb",
+                tooltip: "Deadzone: There are no cell towers here"
+            },
+            projection: {
+                type: 'mercator'
+            }
+        },
+    ]
 };
+
 
 vegaEmbed('#vis1', VlSpec1);
 
