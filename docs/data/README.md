@@ -6,4 +6,4 @@ Victorian Suburb Data (victoria.geo.json): https://data.gov.au/dataset/ds-dga-af
 
 # Internet Activity
 
-https://www.abs.gov.au/statistics/industry/technology-and-innovation/internet-activity-australia
+Australian Internet Activity 2000 - 2018 (internet_speeds.csv): https://www.abs.gov.au/statistics/industry/technology-and-innovation/internet-activity-australia
