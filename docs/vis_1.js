@@ -8,14 +8,14 @@ const VlSpec1 = {
     layer: [
         {
             data: {
-                url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/victoria.topo.json",
+                url: "data/cell_towers/victoria.topo.json",
                 format: { type: "topojson", feature: "victoria" }
             },
             transform: [{
                 lookup: "id",
                 from: {
                     data: {
-                        url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/id_to_num_stations.csv"
+                        url: "data/cell_towers/id_to_num_stations.csv"
                     },
                     key: "id",
                     fields: ["station_count_by_area"]
@@ -42,14 +42,14 @@ const VlSpec1 = {
         },
         {
             data: {
-                url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/victoria.topo.json",
+                url: "data/cell_towers/victoria.topo.json",
                 format: { type: "topojson", feature: "victoria" }
             },
             transform: [{
                 lookup: "id",
                 from: {
                     data: {
-                        url: "https://raw.githubusercontent.com/Blake-Haydon/FIT3179_2021_S2_W9/main/docs/data/id_to_num_stations.csv"
+                        url: "data/cell_towers/id_to_num_stations.csv"
                     },
                     key: "id",
                     fields: ["station_count_by_area"]
