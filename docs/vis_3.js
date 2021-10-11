@@ -1,23 +1,23 @@
 const VlSpec3 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    description: 'A simple bar chart with embedded data.',
+    title: "Australian Internet Speeds over Time",
     data: {
-        values: [
-            { a: 'A', b: 28 },
-            { a: 'B', b: 55 },
-            { a: 'C', b: 43 },
-            { a: 'D', b: 91 },
-            { a: 'E', b: 81 },
-            { a: 'F', b: 53 },
-            { a: 'G', b: 19 },
-            { a: 'H', b: 87 },
-            { a: 'I', b: 52 }
-        ]
+        url: "data/connectivity/online_population.csv",
+        format: {
+            type: "csv"
+        },
     },
-    mark: 'bar',
+    mark: 'line',
     encoding: {
-        x: { field: 'a', type: 'ordinal' },
-        y: { field: 'b', type: 'quantitative' }
+        x: { field: 'Year', type: 'ordinal' },
+        y: { field: 'Percent Connected', type: 'quantitative' },
+        color: { field: "Country", type: "nominal" },
+        tooltip: [
+            { field: "Year", type: "ordinal", title: "Year" },
+            { field: "Country", type: "nominal", title: "Country" },
+            { field: "Percent Connected", type: "ordinal", title: "Percent Connected (\%)" },
+        ]
+
     }
 };
 
