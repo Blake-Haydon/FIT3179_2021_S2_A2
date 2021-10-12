@@ -1,3 +1,6 @@
+// TODO: ADD LABEL FOR WHEN THE LAWS CHANGED
+// https://www.infrastructure.gov.au/media-technology-communications/internet/telecommunications-reform-package
+
 const VlSpec4 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     title: 'NBN Speeds',
