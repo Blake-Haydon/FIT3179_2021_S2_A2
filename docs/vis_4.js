@@ -35,7 +35,7 @@ const VlSpec4 = {
             ]
         },
         color: {
-            field: 'Speed Difference',
+            field: 'Actual Average Speed',
             type: 'quantitative',
         },
         tooltip: [

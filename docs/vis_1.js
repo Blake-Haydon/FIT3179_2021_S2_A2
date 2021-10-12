@@ -1,7 +1,6 @@
 const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     title: 'Normalised Cell Tower Stations per Suburb in Victoria',
-    description: 'The count of cell towers distributed around australia per unit of area (cell towers/area)',
     width: 600,
     height: 450,
     layer: [
@@ -17,7 +16,7 @@ const VlSpec1 = {
                         url: "data/cell_towers/id_to_num_stations.csv"
                     },
                     key: "id",
-                    fields: ["station_count_by_area"]
+                    fields: ["station_count_by_area", "station_count", "suburb"]
                 }
             }],
             mark: {
@@ -33,7 +32,12 @@ const VlSpec1 = {
                         range: ["#b3cde3", "#8c96c6", "#88419d"],
                     }
                 },
-                tooltip: { field: "station_count_by_area", type: "quantitative", title: "Station Count by Area" }
+                tooltip: [
+                    { field: "suburb", type: "string", title: "Suburb" },
+                    { field: "station_count_by_area", type: "quantitative", title: "Number of Stations per Square Kilometer", format: ",.1f" },
+                    { field: "station_count", type: "quantitative", title: "Total Number of Stations" },
+                ]
+
             },
             projection: {
                 type: 'mercator'
@@ -61,8 +65,8 @@ const VlSpec1 = {
             ],
             mark: {
                 type: "geoshape",
-                color: "#edf8fb",
-                tooltip: "Deadzone: There are no cell towers here"
+                color: "red",
+                tooltip: "Deadzone: There are no cell towers here",
             },
             projection: {
                 type: 'mercator'
