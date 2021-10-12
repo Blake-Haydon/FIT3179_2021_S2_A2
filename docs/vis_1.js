@@ -1,6 +1,6 @@
 const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    title: 'Number of Cell Towers per Square Kilometer in Victoria 2021',
+    title: 'Number of Cell Towers per Square Kilometre in Victoria 2021',
     width: 600,
     height: 450,
     params: [
@@ -58,7 +58,7 @@ const VlSpec1 = {
                 color: {
                     field: "station_count_by_area_plus_1",
                     type: "quantitative",
-                    title: "Stations per Square Kilometer",
+                    title: "Stations per Square Kilometre",
                     scale: {
                         type: "log",
                         domain: [1, 1000000],
@@ -68,7 +68,7 @@ const VlSpec1 = {
                 tooltip: [
                     { field: "suburb", type: "string", title: "Suburb" },
                     { field: "station_count", type: "quantitative", title: "Total Number of Stations" },
-                    { field: "station_count_by_area", type: "quantitative", title: "Stations / Square Kilometer", format: ",.1f" },
+                    { field: "station_count_by_area", type: "quantitative", title: "Stations / Square Kilometre", format: ",.1f" },
                 ]
             },
         },
