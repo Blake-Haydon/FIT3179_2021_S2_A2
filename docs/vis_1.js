@@ -1,5 +1,3 @@
-// TODO: ADD ZOOM
-
 const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     title: 'Number of Cell Towers per Square Kilometer in Victoria 2021',
