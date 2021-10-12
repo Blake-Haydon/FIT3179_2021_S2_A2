@@ -13,3 +13,8 @@ Australian Internet Activity 2000 - 2018 (internet_speeds.csv): https://www.abs.
 # Connectivity 
 
 Percent of Australians online compared to other countries 2000 - 2016 (online_population.csv): https://www.internetlivestats.com/internet-users-by-country/
+
+
+# NBN Speeds 
+
+Different NBN Speed tiers and their Actual speeds (concat_nbn_speed_data.csv): https://www.accc.gov.au/consumers/internet-landline-services/broadband-performance-data
