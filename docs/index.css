@@ -9,10 +9,5 @@ h2 {
 
 p {
     font-family: 'Open Sans', sans-serif;
-}
-
-#vis {
-    position: fixed;
-    top: 70px;
-    right: 0;
+    color: #3d3d3d;
 }
