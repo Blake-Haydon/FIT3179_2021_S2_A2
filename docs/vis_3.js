@@ -1,6 +1,8 @@
 const VlSpec3 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    title: "Australian Internet Speeds over Time",
+    title: "Australian Internet Connectivity over Time",
+    width: 600,
+    height: 450,
     data: {
         url: "data/connectivity/online_population.csv",
         format: {

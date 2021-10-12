@@ -60,8 +60,8 @@ const VlSpec2 = {
         as: "percent_of_users",
     }],
     vconcat: [{
-        width: 800,
-        height: 500,
+        width: 600,
+        height: 450,
         mark: {
             type: "bar",
         },
@@ -114,8 +114,8 @@ const VlSpec2 = {
         }
     },
     {
-        width: 800,
-        height: 100,
+        width: 600,
+        height: 70,
         mark: {
             type: "area",
             interpolate: "monotone",

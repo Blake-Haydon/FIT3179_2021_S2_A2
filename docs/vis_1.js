@@ -2,9 +2,8 @@ const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     title: 'Normalised Cell Tower Stations per Suburb in Victoria',
     description: 'The count of cell towers distributed around australia per unit of area (cell towers/area)',
-    width: 800,
-    height: 600,
-
+    width: 600,
+    height: 450,
     layer: [
         {
             data: {
