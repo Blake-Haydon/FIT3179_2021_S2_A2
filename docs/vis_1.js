@@ -1,8 +1,11 @@
+// TODO: ADD ZOOM
+
 const VlSpec1 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    title: 'Normalised Cell Tower Stations per Suburb in Victoria',
+    title: 'Number of Cell Towers per Square Kilometer in Victoria 2021',
     width: 600,
     height: 450,
+
     layer: [
         {
             data: {
@@ -19,25 +22,23 @@ const VlSpec1 = {
                     fields: ["station_count_by_area", "station_count", "suburb"]
                 }
             }],
-            mark: {
-                type: "geoshape"
-            },
+            mark: { type: "geoshape" },
             encoding: {
                 color: {
                     field: "station_count_by_area",
                     type: "quantitative",
+                    title: "Stations per Square Kilometer",
                     scale: {
-                        type: "threshold",
-                        domain: [50, 1000],
-                        range: ["#b3cde3", "#8c96c6", "#88419d"],
+                        type: "log",
+                        domain: [1, 100000],
+                        scheme: "plasma",
                     }
                 },
                 tooltip: [
                     { field: "suburb", type: "string", title: "Suburb" },
-                    { field: "station_count_by_area", type: "quantitative", title: "Number of Stations per Square Kilometer", format: ",.1f" },
                     { field: "station_count", type: "quantitative", title: "Total Number of Stations" },
+                    { field: "station_count_by_area", type: "quantitative", title: "Stations / Square Kilometer", format: ",.1f" },
                 ]
-
             },
             projection: {
                 type: 'mercator'
@@ -55,7 +56,7 @@ const VlSpec1 = {
                         url: "data/cell_towers/id_to_num_stations.csv"
                     },
                     key: "id",
-                    fields: ["station_count_by_area"]
+                    fields: ["station_count_by_area", "suburb"]
                 }
             },
             {
@@ -65,7 +66,7 @@ const VlSpec1 = {
             ],
             mark: {
                 type: "geoshape",
-                color: "red",
+                color: "black",
                 tooltip: "Deadzone: There are no cell towers here",
             },
             projection: {

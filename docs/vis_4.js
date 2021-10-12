@@ -37,6 +37,7 @@ const VlSpec4 = {
         color: {
             field: 'Actual Average Speed',
             type: 'quantitative',
+            scale: { scheme: "plasma" }
         },
         tooltip: [
             { field: 'Date', type: 'ordinal', title: 'Date' },
