@@ -6,7 +6,7 @@ const VlSpec1 = {
     params: [
         {
             name: "zoom_level",
-            value: 3000,
+            value: 7500,
             bind: {
                 input: "range",
                 min: 3000,

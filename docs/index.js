@@ -24,6 +24,10 @@ style.innerHTML = `
     .title {
         border: 10px solid red;
     }
+
+    .info-block {
+        border: 5px dashed red;
+    }
 `;
 
 
