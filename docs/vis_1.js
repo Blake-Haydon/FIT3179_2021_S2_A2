@@ -5,7 +5,40 @@ const VlSpec1 = {
     title: 'Number of Cell Towers per Square Kilometer in Victoria 2021',
     width: 600,
     height: 450,
+    params: [
+        {
+            name: "zoom_level",
+            value: 3000,
+            bind: {
+                input: "range",
+                min: 3000,
+                max: 60000,
+                step: 100,
+                name: "Zoom: "
+            }
+        },
+        {
+            name: "center_to",
+            value: [145, -37.95],
+            bind: {
+                input: "select",
+                options: [
+                    [145, -37.95],
+                    [144.3, -38.1],
+                    [143.84957, -37.56622],
+                    [145.39867, -36.38047],
 
+                ],
+                labels: ["Melbourne CBD", "Geelong", "Ballarat", "Shepparton"],
+                name: "Map Centre: "
+            }
+        }
+    ],
+    projection: {
+        type: 'mercator',
+        center: { expr: "center_to" },
+        scale: { expr: "zoom_level" },
+    },
     layer: [
         {
             data: {
@@ -19,18 +52,18 @@ const VlSpec1 = {
                         url: "data/cell_towers/id_to_num_stations.csv"
                     },
                     key: "id",
-                    fields: ["station_count_by_area", "station_count", "suburb"]
+                    fields: ["station_count_by_area", "station_count_by_area_plus_1", "station_count", "suburb"]
                 }
             }],
             mark: { type: "geoshape" },
             encoding: {
                 color: {
-                    field: "station_count_by_area",
+                    field: "station_count_by_area_plus_1",
                     type: "quantitative",
                     title: "Stations per Square Kilometer",
                     scale: {
                         type: "log",
-                        domain: [1, 100000],
+                        domain: [1, 1000000],
                         scheme: "plasma",
                     }
                 },
@@ -40,38 +73,6 @@ const VlSpec1 = {
                     { field: "station_count_by_area", type: "quantitative", title: "Stations / Square Kilometer", format: ",.1f" },
                 ]
             },
-            projection: {
-                type: 'mercator'
-            },
-        },
-        {
-            data: {
-                url: "data/cell_towers/victoria.topo.json",
-                format: { type: "topojson", feature: "victoria" }
-            },
-            transform: [{
-                lookup: "id",
-                from: {
-                    data: {
-                        url: "data/cell_towers/id_to_num_stations.csv"
-                    },
-                    key: "id",
-                    fields: ["station_count_by_area", "suburb"]
-                }
-            },
-            {
-                // No stations
-                filter: "datum.station_count_by_area == 0"
-            }
-            ],
-            mark: {
-                type: "geoshape",
-                color: "black",
-                tooltip: "Deadzone: There are no cell towers here",
-            },
-            projection: {
-                type: 'mercator'
-            }
         },
     ]
 };
