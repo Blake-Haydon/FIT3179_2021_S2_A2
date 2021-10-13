@@ -1,6 +1,5 @@
 const VlSpec2 = {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    title: "Australian Internet Speeds over Time",
     data: {
         url: "data/internet_activity/internet_speeds.csv",
         format: {
@@ -60,6 +59,7 @@ const VlSpec2 = {
         as: "percent_of_users",
     }],
     vconcat: [{
+        title: "Australian Internet Speeds over Time",
         width: 600,
         height: 450,
         mark: {

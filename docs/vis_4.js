@@ -3,13 +3,13 @@
 
 const VlSpec4 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    title: 'NBN Speeds',
 
     width: 600,
     height: 450,
 
     hconcat: [
         {
+            title: 'NBN Speeds',
             width: 500,
             height: 450,
             layer: [{
@@ -71,7 +71,7 @@ const VlSpec4 = {
                         strokeWidth: 5,
                         strokeDash: [8, 8],
                         color: "white",
-                        tooltip: "The bill forced Telcom companies to deliver a minimum internet speed to consumers, thus increasing everyone's connection."
+                        tooltip: "The bill forced Telcom companies to deliver a minimum internet speed to consumers, increasing everyone's connection speed."
                     },
                 }, {
                     mark: {
@@ -82,7 +82,7 @@ const VlSpec4 = {
                         dy: -240,
                         x: "width",
                         text: "Internet Reform Bill 2020",
-                        tooltip: "The bill forced Telcom companies to deliver a minimum internet speed to consumers, thus increasing everyone's connection."
+                        tooltip: "The bill forced Telcom companies to deliver a minimum internet speed to consumers, increasing everyone's connection speed."
                     }
                 }]
             }]
