@@ -1,4 +1,4 @@
-// TODO: ADD LABEL FOR WHEN THE LAWS CHANGED
+// LABEL FOR WHEN THE LAW CHANGED
 // https://www.infrastructure.gov.au/media-technology-communications/internet/telecommunications-reform-package
 
 const VlSpec4 = {
