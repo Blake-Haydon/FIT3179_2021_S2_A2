@@ -3,23 +3,56 @@ const VlSpec3 = {
     title: "Global Internet Connectivity over Time",
     width: 600,
     height: 450,
+    params: [{
+        name: "country_selection",
+        bind: {
+            input: "select",
+            options: [
+                null,
+                "China",
+                "India",
+                "New Zealand",
+                "Sweeden",
+                "USA",
+            ],
+            labels: [
+                "All",
+                "China",
+                "India",
+                "New Zealand",
+                "Sweeden",
+                "USA",
+            ],
+            name: "Compair to Country: "
+        }
+    }],
     data: {
         url: "data/connectivity/online_population.csv",
         format: {
             type: "csv"
         },
     },
-    mark: 'line',
+    transform: [{
+        filter: "country_selection == null || (datum.Country == country_selection | datum.Country == 'Australia')"
+    }],
+    mark: { type: 'line', strokeWidth: 6 },
     encoding: {
         x: { field: 'Year', type: 'ordinal' },
         y: { field: 'Percent Connected', type: 'quantitative' },
-        color: { field: "Country", type: "nominal" },
+        color: {
+            field: "Country",
+            type: "nominal",
+            scale: {
+                domain: ["Australia", "China", "India", "New Zealand", "Sweeden", "USA"],
+                range: ["#91003f", "red", "grey", "green", "orange", "blue"],
+                type: "nominal",
+            },
+        },
         tooltip: [
             { field: "Year", type: "ordinal", title: "Year" },
             { field: "Country", type: "nominal", title: "Country" },
             { field: "Percent Connected", type: "ordinal", title: "Percent Connected (\%)" },
         ]
-
     },
     config: {
         text: { font: 'Open Sans' },
