@@ -67,27 +67,4 @@ with open(filename, "w") as csvfile:
     # writing the data rows
     csvwriter.writerows(rows)
 
-
-# check each polygon to see if it contains the point
-
-# fields = ["id", "rate", "suburb"]
-# rows = []
-# i = 1
-# for area in js["objects"]["victoria"]["geometries"]:
-#     rows.append([area["id"], i, i])
-#     print(area["id"])
-#     i += 1
-
-#     # print(area["properties"]["lc_ply_pid"])
-#     # print(area["properties"]["loc_pid"])
-#     # print(area["properties"]["vic_loca_2"])
-
-#     # LOCAL NAME vic_loca_2
-
-#     # print(vic_loca_5)`1`
-#     # print(vic_loca_7)
-
-# for feature in js["features"]:
-#     polygon = shape(feature["geometry"])
-#     if polygon.contains(point):
-#         print("Found containing polygon:", feature)
+ze
