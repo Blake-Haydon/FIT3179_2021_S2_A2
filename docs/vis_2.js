@@ -117,7 +117,7 @@ const VlSpec2 = {
         width: 600,
         height: 70,
         mark: {
-            type: "area",
+            type: "bar",
             interpolate: "monotone",
         },
         params: [{
@@ -144,7 +144,11 @@ const VlSpec2 = {
                 { field: "real_total_num_users", type: "quantitative", title: "Total number of Users", format: ",.0f" },
             ],
         }
-    }]
+    }],
+    config: {
+        text: { font: 'Open Sans' },
+        title: { font: 'monospace', fontSize: 15, fontWeight: "normal" },
+    },
 };
 
 vegaEmbed('#vis2', VlSpec2);

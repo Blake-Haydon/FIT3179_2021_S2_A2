@@ -146,9 +146,11 @@ const VlSpec4 = {
         axis: {
             tickBand: 'extent'
         },
+        text: { font: 'Open Sans' },
+        title: { font: 'monospace', fontSize: 15, fontWeight: "normal" },
     },
-
 };
+
 
 vegaEmbed('#vis4', VlSpec4);
 

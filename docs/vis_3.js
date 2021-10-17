@@ -1,6 +1,6 @@
 const VlSpec3 = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    title: "Australian Internet Connectivity over Time",
+    title: "Global Internet Connectivity over Time",
     width: 600,
     height: 450,
     data: {
@@ -20,7 +20,11 @@ const VlSpec3 = {
             { field: "Percent Connected", type: "ordinal", title: "Percent Connected (\%)" },
         ]
 
-    }
+    },
+    config: {
+        text: { font: 'Open Sans' },
+        title: { font: 'monospace', fontSize: 15, fontWeight: "normal" },
+    },
 };
 
 vegaEmbed('#vis3', VlSpec3);

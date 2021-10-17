@@ -72,7 +72,12 @@ const VlSpec1 = {
                 ]
             },
         },
-    ]
+    ],
+
+    config: {
+        text: { font: 'Open Sans' },
+        title: { font: 'monospace', fontSize: 15, fontWeight: "normal" },
+    },
 };
 
 
